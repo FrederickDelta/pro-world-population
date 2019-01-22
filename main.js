@@ -15,7 +15,8 @@ function displayResults(){
   const searchResults = search(this.value, countries)
   const html = searchResults.map(country => {
     const rank = `No.${country.Rank}`
-    const countryName = country.country
+    const regex = new RegExp(this.value, 'gi')
+    const countryName = country.country.replace(regex, `<span class="hl">${this.value}</span>`)
     const population = addCommaSeparator(country.population)
     return `
       <li>

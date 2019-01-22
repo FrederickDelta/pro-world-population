@@ -59,3 +59,7 @@ span.population {
   font-size: 20px;
   float:right;
 }
+
+.hl {
+  background-color: #ffc600;
+}
