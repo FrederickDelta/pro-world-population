@@ -19,9 +19,9 @@ function displayResults(){
     const population = country.population
     return `
       <li>
-        <span>${rank}</span>
-        <span>${countryName}</span>
-        <span>${population}</span>
+        <span class="rank">${rank}</span>
+        <span class="country">${countryName}</span>
+        <span class="population">${population}</span>
       </li>
     `
   }).join('')
