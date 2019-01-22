@@ -16,7 +16,7 @@ function displayResults(){
   const html = searchResults.map(country => {
     const rank = `No.${country.Rank}`
     const countryName = country.country
-    const population = country.population
+    const population = addCommaSeparator(country.population)
     return `
       <li>
         <span class="rank">${rank}</span>
@@ -33,4 +33,8 @@ function search(keyword, countries){
     const regex = new RegExp(keyword, 'gi')
     return country.country.match(regex)
   })
+}
+
+function addCommaSeparator(num) {
+  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
