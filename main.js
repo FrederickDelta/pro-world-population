@@ -16,12 +16,13 @@ function displayResults(){
   const html = searchResults.map(country => {
     const rank = `No.${country.Rank}`
     const regex = new RegExp(this.value, 'gi')
-    const countryName = country.country.replace(regex, `<span class="hl">${this.value}</span>`)
+    const countryName = country.country.replace(regex, `<span class="hl">${this.value.toString().toLowerCase()}</span>`)
     const population = addCommaSeparator(country.population)
+    //Trick: the space before `${countryName}` is to make sure `text-transform: capitalize` work as expected
     return `
       <li>
         <span class="rank">${rank}</span>
-        <span class="country">${countryName}</span>
+        <span class="country"> ${countryName}</span>
         <span class="population">${population}</span>
       </li>
     `
